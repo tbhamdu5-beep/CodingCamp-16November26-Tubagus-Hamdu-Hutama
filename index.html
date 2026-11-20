@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Productivity Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+      <span class="theme-icon" id="themeIcon">🌙</span>
+    </button>
+
+    <div class="dashboard-container">
+
+      <!-- DIGITAL CLOCK & GREETING CARD -->
+      <div class="card clock-card">
+        <div class="greeting" id="greeting">Good Morning</div>
+        <div class="clock" id="clock">00:00:00</div>
+        <div class="date" id="date">Monday, January 1, 2026</div>
+      </div>
+
+      <!-- FOCUS TIMER & TASKS ROW -->
+      <div class="middle-row">
+
+        <!-- FOCUS TIMER CARD -->
+        <div class="card timer-card">
+          <h2 class="card-title">⏱ Focus Timer</h2>
+          <div class="timer-display" id="timerDisplay">25:00</div>
+          <div class="timer-label" id="timerLabel">Focus Session</div>
+          <div class="timer-buttons">
+            <button class="btn btn-primary" id="startStopBtn">Start</button>
+            <button class="btn btn-secondary" id="resetBtn">Reset</button>
+          </div>
+          <div class="timer-modes">
+            <button class="mode-btn active" id="focusMode" data-minutes="25" data-label="Focus Session">Focus</button>
+            <button class="mode-btn" id="shortBreak" data-minutes="5" data-label="Short Break">Short Break</button>
+            <button class="mode-btn" id="longBreak" data-minutes="15" data-label="Long Break">Long Break</button>
+          </div>
+          <div class="session-count">
+            <span>Sessions completed: </span>
+            <span class="session-num" id="sessionCount">0</span>
+          </div>
+        </div>
+
+        <!-- TASKS CARD -->
+        <div class="card tasks-card">
+          <h2 class="card-title">✅ Tasks</h2>
+          <div class="task-input-row">
+            <input
+              type="text"
+              class="task-input"
+              id="taskInput"
+              placeholder="Add a new task..."
+              maxlength="80"
+            />
+            <button class="btn btn-primary" id="addTaskBtn">Add</button>
+          </div>
+          <ul class="task-list" id="taskList">
+            <!-- Tasks rendered by JS -->
+          </ul>
+          <div class="task-footer">
+            <span id="taskSummary">0 tasks remaining</span>
+            <button class="btn-clear" id="clearCompleted">Clear Completed</button>
+          </div>
+        </div>
+
+      </div><!-- end middle-row -->
+
+      <!-- QUICK LINKS CARD -->
+      <div class="card links-card">
+        <h2 class="card-title">🔗 Quick Links</h2>
+        <div class="links-input-row">
+          <input type="text" class="links-input" id="linkName" placeholder="Label" maxlength="30" />
+          <input type="url" class="links-input" id="linkUrl" placeholder="https://..." maxlength="200" />
+          <button class="btn btn-primary" id="addLinkBtn">Add</button>
+        </div>
+        <div class="links-grid" id="linksGrid">
+          <!-- Links rendered by JS -->
+        </div>
+      </div>
+
+    </div><!-- end dashboard-container -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
